@@ -1,0 +1,62 @@
+[
+  {
+    "Servicerequested": "TOWING SERVICE OF ENGINE",
+    "chargeable": "Y",
+    "Customer": "DHL",
+    "AWBNumber": "618-98877800",
+    "ULDNumber": "",
+    "FlightDate": "",
+    "RequestedDate": "",
+    "Remarks": "",
+    "Status": "Pending",
+    "ReasonforRejection": ""
+  },
+  {
+    "Servicerequested": "FORKLIFT RENTAL",
+    "chargeable": "Y",
+    "Customer": "DBS",
+    "AWBNumber": "318-22110118",
+    "ULDNumber": "AKE10011SQ",
+    "FlightDate": "SQ666 06SEP2017",
+    "RequestedDate": "05SEP2017 13:10",
+    "Remarks": "success",
+    "Status": "Completed",
+    "ReasonforRejection": ""
+  },
+  {
+    "Servicerequested": "SECURITY ESCORT",
+    "chargeable": "Y",
+    "Customer": "TNT",
+    "AWBNumber": "618-77661001",
+    "ULDNumber": "",
+    "FlightDate": "",
+    "RequestedDate": "",
+    "Remarks": "",
+    "Status": "Rejected",
+    "ReasonforRejection": "Late Lodge-in"
+  },
+  {
+    "Servicerequested": "APPLY PERMIT",
+    "chargeable": "Y",
+    "Customer": "NES",
+    "AWBNumber": "618-10012211",
+    "ULDNumber": "",
+    "FlightDate": "SQ767 07SEP2017",
+    "RequestedDate": "06SEP2017 10:00",
+    "Remarks": "",
+    "Status": "Pending",
+    "ReasonforRejection": ""
+  },
+  {
+    "Servicerequested": "TOPUP DRY ICE",
+    "chargeable": "Y",
+    "Customer": "DHL",
+    "AWBNumber": "618-33221001",
+    "ULDNumber": "",
+    "FlightDate": "",
+    "RequestedDate": "",
+    "Remarks": "",
+    "Status": "Started",
+    "ReasonforRejection": ""
+  }
+]
