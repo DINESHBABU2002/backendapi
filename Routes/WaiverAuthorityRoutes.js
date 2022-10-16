@@ -5,4 +5,9 @@ router
   .route("/")
   .get(WaiverAuthorityContoller.getAllWaiver)
   .post(WaiverAuthorityContoller.addWaiver);
+
+router
+  .route("/:id")
+  .put(WaiverAuthorityContoller.editWaiver)
+  .delete(WaiverAuthorityContoller.deleteWaiver);
 module.exports = router;
