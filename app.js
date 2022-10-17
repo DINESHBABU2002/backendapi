@@ -6,7 +6,7 @@ app.use(express.json());
 const corsOpts = {
   origin: "*",
 
-  methods: ["GET", "POST", "DELETE", "PATCH"],
+  methods: ["GET", "POST", "PUT", "DELETE"],
 
   allowedHeaders: ["Content-Type"],
 };
