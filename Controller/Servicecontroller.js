@@ -1,8 +1,82 @@
 const fs = require("fs");
-const service = JSON.parse(
-  fs.readFileSync(`${__dirname}/Service.json`, "utf-8")
-);
+var service = JSON.parse(fs.readFileSync(`${__dirname}/Service.json`, "utf-8"));
 exports.getAllService = async (req, res) => {
+  var service = JSON.parse(
+    fs.readFileSync(`${__dirname}/Service.json`, "utf-8")
+  );
+  console.log(service.len);
+  query = req.query;
+  if ("RequestedFrom" in query || "RequestedTo" in query) {
+    if (query["RequestedFrom"] != "" && query["RequestedTo"] != "") {
+      query["RequestedFrom"] = new Date(query["RequestedFrom"]);
+      console.log("sdvdsd", query["RequestedFrom"]);
+      query["RequestedTo"] = new Date(query["RequestedTo"]);
+      service = service.filter((el) => {
+        console.log(
+          "sdvdsd",
+          query["RequestedFrom"],
+          el.RequestedDate,
+          new Date(el.RequestedDate)
+        );
+        const waiveDate = new Date(el.RequestedDate);
+        return (
+          waiveDate >= query["RequestedFrom"] &&
+          waiveDate <= query["RequestedTo"]
+        );
+      });
+    } else if (query["RequestedFrom"] != "" && query["RequestedTo"] == "") {
+      query["RequestedFrom"] = new Date(query["RequestedFrom"]);
+      service = service.filter((el) => {
+        const waiveDate = new Date(el.RequestedDate);
+        return waiveDate >= query["RequestedFrom"];
+      });
+    } else if (query["RequestedFrom"] == "" && query["RequestedTo"] != "") {
+      query["RequestedTo"] = new Date(query["RequestedTo"]);
+      service = service.filter((el) => {
+        const waiveDate = new Date(el.RequestedDate);
+        return waiveDate <= query["RequestedTo"];
+      });
+    }
+  }
+
+  if ("Status" in query) {
+    service = service.filter((el) => {
+      return el.Status.toLowerCase().startsWith(query["Status"].toLowerCase());
+    });
+  }
+
+  if ("ServiceRequested" in query) {
+    service = service.filter((el) => {
+      return el.Servicerequested.toLowerCase().startsWith(
+        query["ServiceRequested"].toLowerCase()
+      );
+    });
+  }
+
+  if ("Customer" in query) {
+    service = service.filter((el) => {
+      return el.Customer.toLowerCase().startsWith(
+        query["Customer"].toLowerCase()
+      );
+    });
+  }
+
+  if ("AWBNumber" in query) {
+    service = service.filter((el) => {
+      return el.AWBNumber.toLowerCase().startsWith(
+        query["AWBNumber"].toLowerCase()
+      );
+    });
+  }
+
+  if ("ULDNumber" in query) {
+    service = service.filter((el) => {
+      return el.ULDNumber.toLowerCase().startsWith(
+        query["ULDNumber"].toLowerCase()
+      );
+    });
+  }
+
   res.status(200).json({
     status: "success",
     data: {
